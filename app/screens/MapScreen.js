@@ -16,9 +16,6 @@ const [region, setRegion] = useState({
   longitudeDelta: 0.01,
 });
 
-const [latitude, setLatitude] = useState(null);
-const [longitude, setLongitude] = useState(null);
-
 useEffect(() => {
   (async () => {
     
@@ -30,41 +27,33 @@ useEffect(() => {
 
     let location = await Location.getCurrentPositionAsync({});
 
-    console.log(location.coords.latitude)
-    console.log(location.coords.longitude)
+    if(location.coords.latitude != null && location.coords.longitude != null){
+      setRegion({longitude: location.coords.longitude,
+                 latitude: location.coords.latitude,
+                 latitudeDelta: 0.01,
+                 longitudeDelta: 0.01,
+      });
+    }
 
-    setLatitude(location.coords.latitude)
-    setLongitude(location.coords.longitude);
-    setRegion({longitude: longitude,
-               latitude: latitude,
-               latitudeDelta: 0.01,
-               longitudeDelta: 0.01,
-              });
   })();
-}, []);
+});
 
 onRegionChange = (region) => {
-  
+  this.setRegion({ region });
 }
 
 return (
   <View style={styles.container}>
+    {console.log(region)}
     <MapView
       style={StyleSheet.absoluteFillObject}
       showsUserLocation = {true}
-      initialRegion={{
-        latitude: 37.785834,
-        longitude: -122.406417,
-        latitudeDelta: 0.15,
-        longitudeDelta: 0.15,
-      }}
+      initialRegion={
+        region
+      }
       region={region}
-      onRegionChange={this.onRegionChange}
-      //onRegionChangeComplete runs when the user stops dragging MapView
-      onRegionChangeComplete={(region) => setRegion(region)}
     />
   </View>
 );
-
 
 }
