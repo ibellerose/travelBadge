@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect, Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styles from "../config/style";
-import MapView from 'react-native-maps';
+import MapView, { Polygon } from 'react-native-maps';
 //import Geolocation from 'react-native-geolocation-service';
 import * as Location from "expo-location"
 
@@ -52,7 +52,38 @@ return (
         region
       }
       region={region}
+    >
+    <Polygon
+      coordinates={[{
+        latitude: 42.361286,
+        longitude: -71.073063,
+      },
+      {
+        latitude: 42.361206,
+        longitude: -71.062849,
+      },
+      {
+        latitude: 42.356529, 
+        longitude: -71.062034,
+      },
+      {
+        latitude: 42.352449, 
+        longitude: -71.064536,
+      },
+      {
+        latitude: 42.351957, 
+        longitude: -71.070722,
+      },
+      {
+        latitude: 42.356001,
+        longitude: -71.075430,
+      }
+    ]}
+    fillColor='rgba(90,200,10,0.3)'
+    strokeColor='rgba(90,200,10,0.3)'
     />
+    </MapView>
+
   </View>
 );
 
