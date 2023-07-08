@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import styles from "../config/style";
 import MapView, { Polygon } from 'react-native-maps';
 import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json'
+import GeoFencing from 'react-native-geo-fencing';
 
 import * as Location from "expo-location"
 
@@ -14,6 +15,11 @@ const [region, setRegion] = useState({
   longitude: -0.0899163,
   latitudeDelta: 0.01,
   longitudeDelta: 0.01,
+});
+
+const [currentLocation, setCurrentLocation] = useState({
+  latitude: 49.5079145,
+  longitude: -0.0899163
 });
 
 useEffect(() => {
@@ -33,6 +39,13 @@ useEffect(() => {
                  latitudeDelta: 0.01,
                  longitudeDelta: 0.01,
       });
+      setCurrentLocation({longitude: location.coords.longitude,
+        latitude: location.coords.latitude
+      })
+
+      GeoFencing.containsLocation(currentLocation, areaCoordsJson['Back Bay'])
+      .then(() => console.log('point is within polygon'))
+      .catch(() => console.log('point is NOT within polygon'))
     }
 
   })();
