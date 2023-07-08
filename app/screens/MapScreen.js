@@ -7,6 +7,8 @@ import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json'
 
 import * as Location from "expo-location"
 
+console.log("Beacon Hill: " + areaCoordsJson["Beacon Hill"])
+
 export default function App() {
 
 const [region, setRegion] = useState({
@@ -44,7 +46,7 @@ onRegionChange = (region) => {
 
 return (
   <View style={styles.container}>
-    {console.log(region)}
+    
     <MapView
       style={StyleSheet.absoluteFillObject}
       showsUserLocation = {true}
@@ -54,31 +56,7 @@ return (
       region={region}
     >
     <Polygon
-      coordinates={[{
-        "latitude": 42.361286,
-        "longitude": -71.073063,
-      },
-      {
-        "latitude": 42.361206,
-        "longitude": -71.062849,
-      },
-      {
-        "latitude": 42.356529, 
-        "longitude": -71.062034,
-      },
-      {
-        "latitude": 42.352449, 
-        "longitude": -71.064536,
-      },
-      {
-        "latitude": 42.351957, 
-        "longitude": -71.070722,
-      },
-      {
-        "latitude": 42.356001,
-        "longitude": -71.075430,
-      }
-    ]}
+      coordinates={areaCoordsJson['Beacon Hill']}
     fillColor='rgba(90,200,10,0.3)'
     strokeColor='rgba(90,200,10,0.3)'
     />

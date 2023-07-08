@@ -1,7 +1,6 @@
-[
+
 {
-    "Area Name": "Beacon Hill",
-    "Coordinates": 
+    "Beacon Hill": 
     [{
         "latitude": 42.361286,
         "longitude": -71.073063
@@ -26,12 +25,8 @@
         "latitude": 42.356001,
         "longitude": -71.075430
       }
-    ]
-
-},
-{
-    "Area Name": "Back Bay",
-    "Coordinates": 
+    ],
+    "Back Bay": 
     [{
         "latitude": 42.350180,
         "longitude": -71.091684
@@ -49,6 +44,4 @@
         "longitude": -71.083056
       }
     ]
-
 }
-]
