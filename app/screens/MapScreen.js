@@ -7,8 +7,6 @@ import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json'
 
 import * as Location from "expo-location"
 
-console.log("Beacon Hill: " + areaCoordsJson["Beacon Hill"])
-
 export default function App() {
 
 const [region, setRegion] = useState({
