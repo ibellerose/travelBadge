@@ -15,6 +15,7 @@
     "expo": "~48.0.18",
     "expo-location": "~15.1.1",
     "expo-status-bar": "~1.4.4",
+    "geolib": "^3.3.4",
     "install": "^0.13.0",
     "npx": "^10.2.2",
     "react": "18.2.0",

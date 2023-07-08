@@ -5,6 +5,7 @@ import styles from "../config/style";
 import MapView, { Polygon } from 'react-native-maps';
 import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json'
 import GeoFencing from 'react-native-geo-fencing';
+import * as geolib from 'geolib';
 
 import * as Location from "expo-location"
 
@@ -21,6 +22,8 @@ const [currentLocation, setCurrentLocation] = useState({
   latitude: 49.5079145,
   longitude: -0.0899163
 });
+
+const [areaColor, setAreaColor] = useState('rgba(90,200,10,0.3)');
 
 useEffect(() => {
   (async () => {
@@ -43,9 +46,9 @@ useEffect(() => {
         latitude: location.coords.latitude
       })
 
-      GeoFencing.containsLocation(currentLocation, areaCoordsJson['Back Bay'])
-      .then(() => console.log('point is within polygon'))
-      .catch(() => console.log('point is NOT within polygon'))
+      if(geolib.isPointInPolygon(currentLocation, areaCoordsJson['Beacon Hill']) == true){
+        setAreaColor('rgba(190,200,10,1)')
+      }
     }
 
   })();
