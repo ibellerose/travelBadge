@@ -12,12 +12,13 @@ export default function Screen({children}) {
 
 return (
   <SafeAreaProvider>
-    {children}
+    
     <Header 
         style={styles.headerContainer}
         centerComponent={{ text: 'Boston', style: styles.heading }}
         leftComponent={{icon: 'menu', color: colors.light}}
     />
+    {children}
   </SafeAreaProvider>
 );
 
