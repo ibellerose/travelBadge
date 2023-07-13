@@ -79,6 +79,7 @@ return (
         height: 3,
       }}
       variant="primary"
+      containerStyle={{ position: 'fixed', bottom: 0}}
     >
       <Tab.Item
         title="Map"
