@@ -79,6 +79,7 @@ return (
         height: 3,
       }}
       variant="primary"
+      //TODO: fix the tabs to the bottom
       containerStyle={{ position: 'fixed', bottom: 0}}
     >
       <Tab.Item
