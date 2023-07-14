@@ -2,6 +2,8 @@ export default {
     primary: '#0aa',
     secondary: '#50f',
     tritiary: '#0c0',
+    lightGray: '#ddd',
+    darkGray: '#aaa',
     dark: '#000',
     light: '#fff',
     caution: '#f00',
