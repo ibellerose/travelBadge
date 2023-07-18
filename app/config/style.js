@@ -28,5 +28,10 @@ export default {
         color: colors.light,
         fontSize: 22,
         fontWeight: 'bold',
-      }
+      },
+    badges: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 15
+    }
 }

@@ -143,9 +143,9 @@ return (
         // fixed
         spacing={10}
         renderItem={({ item }) => (
-          <View style={[{ backgroundColor: item.code }]}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemCode}>{item.code}</Text>
+          <View style={styles.badges}>
+            <Icon name='pets' type='material' color={item.code} size={60}></Icon>
+            <Text>{item.name}</Text>
           </View>
         )}
         />
