@@ -1,7 +1,9 @@
 
 
 {
-    "Beacon Hill": {"name": "Beacon Hill", "color": "#1abc9c", "visited": false},
-    "Back Bay": {"name": "Beacon Hill", "color": "#3498db", "visited": false},
-    "Seaport": {"name": "Beacon Hill", "color": "#9b59b6", "visited": false}
+    "Badge Info": [
+    {"name": "Beacon Hill", "color": "#1abc9c", "visited": false},
+    {"name": "Back Bay", "color": "#3498db", "visited": false},
+    {"name": "Seaport", "color": "#9b59b6", "visited": false}
+    ]
 }
