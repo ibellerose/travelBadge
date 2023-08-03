@@ -3,41 +3,43 @@ import React, {useState, useEffect, Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import styles from "../config/style";
 import MapView, { Polygon } from 'react-native-maps';
-import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json';
 import GeoFencing from 'react-native-geo-fencing';
 import * as geolib from 'geolib';
 import colors from "../config/colors";
 import Screen from '../components/Screen';
 import { FlatGrid } from 'react-native-super-grid';
 
+import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json';
+
+
 import * as Location from "expo-location"
-import { color } from '@rneui/base';
+import { Button, color } from '@rneui/base';
 import { Tab, TabView, Icon } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
 
   const [items, setItems] = React.useState([
-    { name: 'TURQUOISE', code: '#1abc9c' },
-    { name: 'EMERALD', code: '#2ecc71' },
-    { name: 'PETER RIVER', code: '#3498db' },
-    { name: 'AMETHYST', code: '#9b59b6' },
-    { name: 'WET ASPHALT', code: '#34495e' },
-    { name: 'GREEN SEA', code: '#16a085' },
-    { name: 'NEPHRITIS', code: '#27ae60' },
-    { name: 'BELIZE HOLE', code: '#2980b9' },
-    { name: 'WISTERIA', code: '#8e44ad' },
-    { name: 'MIDNIGHT BLUE', code: '#2c3e50' },
-    { name: 'SUN FLOWER', code: '#f1c40f' },
-    { name: 'CARROT', code: '#e67e22' },
-    { name: 'ALIZARIN', code: '#e74c3c' },
-    { name: 'CLOUDS', code: '#ecf0f1' },
-    { name: 'CONCRETE', code: '#95a5a6' },
-    { name: 'ORANGE', code: '#f39c12' },
-    { name: 'PUMPKIN', code: '#d35400' },
-    { name: 'POMEGRANATE', code: '#c0392b' },
-    { name: 'SILVER', code: '#bdc3c7' },
-    { name: 'ASBESTOS', code: '#7f8c8d' },
+    { name: 'TURQUOISE', code: '#1abc9c', visited: false },
+    { name: 'EMERALD', code: '#2ecc71', visited: false },
+    { name: 'PETER RIVER', code: '#3498db', visited: false },
+    { name: 'AMETHYST', code: '#9b59b6', visited: false },
+    { name: 'WET ASPHALT', code: '#34495e', visited: false },
+    { name: 'GREEN SEA', code: '#16a085', visited: false },
+    { name: 'NEPHRITIS', code: '#27ae60', visited: false },
+    { name: 'BELIZE HOLE', code: '#2980b9', visited: false },
+    { name: 'WISTERIA', code: '#8e44ad', visited: false },
+    { name: 'MIDNIGHT BLUE', code: '#2c3e50', visited: false },
+    { name: 'SUN FLOWER', code: '#f1c40f', visited: false },
+    { name: 'CARROT', code: '#e67e22', visited: false },
+    { name: 'ALIZARIN', code: '#e74c3c', visited: false },
+    { name: 'CLOUDS', code: '#ecf0f1', visited: false },
+    { name: 'CONCRETE', code: '#95a5a6', visited: false },
+    { name: 'ORANGE', code: '#f39c12', visited: false },
+    { name: 'PUMPKIN', code: '#d35400', visited: false },
+    { name: 'POMEGRANATE', code: '#c0392b', visited: false },
+    { name: 'SILVER', code: '#bdc3c7', visited: false },
+    { name: 'ASBESTOS', code: '#7f8c8d', visited: false },
   ]);
 
 const [index, setIndex] = React.useState(0);
@@ -119,6 +121,7 @@ return (
 
     <TabView value={index} onChange={setIndex} animationType="spring">
       <TabView.Item style={{ width: '100%' }}>
+        <Button></Button>
         <MapView
           style={StyleSheet.absoluteFillObject}
           showsUserLocation = {true}
