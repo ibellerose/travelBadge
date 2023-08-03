@@ -65,8 +65,21 @@ useEffect(() => {
       });
     }
 
+    findBadgeRegion()
+
   })();
 });
+
+//take current location and see if it is in a badge location
+//function returns location name
+
+findBadgeRegion = () => {
+  GeoFencing.containsLocation(currentLocation, areaCoordsJson['Beacon Hill'])
+  .then(() => console.log("In the area"))
+  .catch(() =>
+    console.log("Not in area")
+  );
+}
 
 onRegionChange = (region) => {
   this.setRegion({ region });
