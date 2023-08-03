@@ -74,11 +74,10 @@ useEffect(() => {
 //function returns location name
 
 findBadgeRegion = () => {
-  GeoFencing.containsLocation(currentLocation, areaCoordsJson['Beacon Hill'])
-  .then(() => console.log("In the area"))
-  .catch(() =>
-    console.log("Not in area")
-  );
+
+  let bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson['Back Bay'])
+  console.log(bol)
+
 }
 
 onRegionChange = (region) => {
