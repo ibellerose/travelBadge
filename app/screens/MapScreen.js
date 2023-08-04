@@ -74,8 +74,17 @@ useEffect(() => {
 //function returns location name
 
 findBadgeRegion = () => {
+  let bol;
 
-  let bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson['Back Bay'])
+  for(let i = 0; i < Object.keys(areaCoordsJson).length; i++){
+    bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson[Object.keys(areaCoordsJson)[i]])
+    if(bol){
+        console.log("You are in " + Object.keys(areaCoordsJson)[i])
+        badgeInfoJson['Badge Info'][i]['visited'] = true
+      break
+    }
+  }
+
   console.log(bol)
 
 }
