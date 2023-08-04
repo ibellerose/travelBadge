@@ -1,8 +1,8 @@
 import { configureStore, combineReducers} from 'redux';
-import CountReducer from './reducers/countReducer';
+import VisitReducer from './reducers/visitReducer';
  
 const rootReducer = combineReducers({
-  count: CountReducer,
+  visited: VisitReducer,
 });
  
 export const store = configureStore(rootReducer);

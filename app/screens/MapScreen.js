@@ -80,7 +80,7 @@ findBadgeRegion = () => {
     bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson[Object.keys(areaCoordsJson)[i]])
     if(bol){
         console.log("You are in " + Object.keys(areaCoordsJson)[i])
-        badgeInfoJson['Badge Info'][i]['visited'] = true
+        badgeInfoJson['Badge Info'][i].visited = "true"
       break
     }
   }
