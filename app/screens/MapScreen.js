@@ -17,7 +17,13 @@ import { Button, color } from '@rneui/base';
 import { Tab, TabView, Icon } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { useSelector, useDispatch } from "react-redux";
+import { visited } from "../redux/actions/visitAction";
+
 export default function App() {
+
+const state = useSelector((state) => state);
+const dispatch = useDispatch();
 
 const [index, setIndex] = React.useState(0);
 
@@ -111,7 +117,7 @@ return (
         icon={{ name: 'map', type: 'ionicon', color: colors.light }}
       />
       <Tab.Item
-        title="Badges"
+        title={state.visited}
         titleStyle={{ fontSize: 12 }}
         icon={{ name: 'medal', type: 'ionicon', color: colors.light }}
       />

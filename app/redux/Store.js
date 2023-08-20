@@ -1,8 +1,9 @@
-import { configureStore, combineReducers} from 'redux';
-import VisitReducer from './reducers/visitReducer';
+import { combineReducers } from 'redux';
+import { createStore } from 'redux';
+import visitReducer from './reducers/visitReducer';
  
 const rootReducer = combineReducers({
-  visited: VisitReducer,
+  visit: visitReducer,
 });
- 
-export const store = configureStore(rootReducer);
+
+export const store = createStore(rootReducer);

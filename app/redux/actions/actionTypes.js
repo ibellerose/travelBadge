@@ -1,0 +1,1 @@
+export const VISITED_TRUE = "VISITED_TRUE";
