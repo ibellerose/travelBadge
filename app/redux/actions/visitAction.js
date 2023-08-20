@@ -1,7 +1,9 @@
-import VISITED_TRUE from '../actions/actionTypes';
+import { VISITED_TRUE } from '../actions/actionTypes';
 
-export const visited = () => {
+const visitLocation = () => {
     return {
       type: VISITED_TRUE,
     };
   };
+
+  export { visitLocation }

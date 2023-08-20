@@ -18,7 +18,7 @@ import { Tab, TabView, Icon } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useSelector, useDispatch } from "react-redux";
-import { visited } from "../redux/actions/visitAction";
+import { visitLocation } from "../redux/actions/visitAction";
 
 export default function App() {
 
@@ -72,6 +72,7 @@ useEffect(() => {
     }
 
     findBadgeRegion()
+    console.log( "State.Visited: " + state.visited)
 
   })();
 });
@@ -79,14 +80,15 @@ useEffect(() => {
 //take current location and see if it is in a badge location
 //function returns location name
 
-findBadgeRegion = () => {
+findBadgeRegion = async() => {
   let bol;
 
   for(let i = 0; i < Object.keys(areaCoordsJson).length; i++){
     bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson[Object.keys(areaCoordsJson)[i]])
     if(bol){
-        console.log("You are in " + Object.keys(areaCoordsJson)[i])
-        badgeInfoJson['Badge Info'][i].visited = "true"
+        //console.log("You are in " + Object.keys(areaCoordsJson)[i])
+        //badgeInfoJson['Badge Info'][i].visited = "true"
+        await dispatch(visitLocation())
       break
     }
   }
@@ -117,7 +119,7 @@ return (
         icon={{ name: 'map', type: 'ionicon', color: colors.light }}
       />
       <Tab.Item
-        title={state.visited}
+        title="Badges"
         titleStyle={{ fontSize: 12 }}
         icon={{ name: 'medal', type: 'ionicon', color: colors.light }}
       />
