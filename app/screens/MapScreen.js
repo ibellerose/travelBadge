@@ -38,6 +38,7 @@ const [currentLocation, setCurrentLocation] = useState({
   latitude: 49.5079145,
   longitude: -0.0899163
 });
+const TIME_INTERVAL = 5000;
 
 useEffect(() => {
   (async () => {
@@ -71,16 +72,23 @@ useEffect(() => {
       });
     }
 
-    findBadgeRegion()
-    console.log( "State.Visited: " + state.visited)
+    const interval = setInterval(() => {
+      findBadgeRegion()
+      console.log("test")
+    }, TIME_INTERVAL);
+
+    return () => clearInterval(interval);
+
+    //findBadgeRegion()
+    //console.log( "State.Visited: " + state.visited)
 
   })();
-});
+},[]);
 
 //take current location and see if it is in a badge location
 //function returns location name
 
-findBadgeRegion = async() => {
+findBadgeRegion = () => {
   let bol;
 
   for(let i = 0; i < Object.keys(areaCoordsJson).length; i++){
@@ -88,12 +96,10 @@ findBadgeRegion = async() => {
     if(bol){
         //console.log("You are in " + Object.keys(areaCoordsJson)[i])
         //badgeInfoJson['Badge Info'][i].visited = "true"
-        await dispatch(visitLocation())
+        dispatch(visitLocation())
       break
     }
   }
-
-  console.log(bol)
 
 }
 
