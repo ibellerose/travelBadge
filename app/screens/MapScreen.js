@@ -62,7 +62,6 @@ useEffect(() => {
       })
 
       if(geolib.isPointInPolygon(currentLocation, areaCoordsJson['Beacon Hill']) == true){
-        //console.log("In zone")
       }
     } else {
       setRegion({longitude: 42.360132,
@@ -78,9 +77,6 @@ useEffect(() => {
 
     return () => clearInterval(interval);
 
-    // findBadgeRegion()
-    // console.log( "state.visited: " + state.visited + "\n" + "state.badge: " + state.badgeColor)
-
   })();
 }, []);
 
@@ -93,9 +89,7 @@ findBadgeRegion = () => {
   for(let i = 0; i < Object.keys(areaCoordsJson).length; i++){
     bol = geolib.isPointInPolygon(currentLocation, areaCoordsJson[Object.keys(areaCoordsJson)[i]])
     if(bol){
-        //console.log("You are in " + Object.keys(areaCoordsJson)[i])
-        //badgeInfoJson['Badge Info'][i].visited = "true"
-        dispatch(visitLocation(Object.keys(areaCoordsJson)[i]))
+      dispatch(visitLocation(Object.keys(areaCoordsJson)[i]))
       break
     }
   }
@@ -152,8 +146,6 @@ return (
         itemDimension={130}
         data={badgeInfoJson['Badge Info']}
         style={styles.gridView}
-        // staticDimension={300}
-        // fixed
         spacing={10}
         renderItem={({ item }) => (
           <View style={styles.badges}>
