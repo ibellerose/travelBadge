@@ -1,18 +1,28 @@
-import { VISITED_TRUE } from '../actions/actionTypes'
+import { BACK_BAY_VISITED, BEACON_HILL_VISITED, SEAPORT_VISITED } from '../actions/actionTypes';
 import colors from '../../config/colors'
 
 const initialState = {
-    visited: false,
-    badgeColor: colors.darkGray
+    "Beacon Hill": {"color": colors.darkGray, "visited": false},
+    "Back Bay": {"color": colors.darkGray, "visited": false},
+    "Seaport": {"color": colors.darkGray, "visited": false}
   };
    
   export default (state = initialState, action) => {
     switch (action.type) {
-      case VISITED_TRUE:
+      case BACK_BAY_VISITED:
         return {
           ...state,
-          visited: true,
-          badgeColor: colors.secondary
+          "Back Bay": {"color": colors.tritiary, "visited": true}
+        };
+      case BEACON_HILL_VISITED:
+        return {
+          ...state,
+          "Beacon Hill": {"color": colors.tritiary, "visited": true}
+        };
+      case SEAPORT_VISITED:
+        return {
+          ...state,
+          "Seaport": {"color": colors.tritiary, "visited": true}
         };
       default:
         return state;
