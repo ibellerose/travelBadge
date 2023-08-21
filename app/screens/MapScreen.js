@@ -40,6 +40,8 @@ const [currentLocation, setCurrentLocation] = useState({
 });
 const TIME_INTERVAL = 5000;
 
+let testColor = colors.darkGray;
+
 useEffect(() => {
   (async () => {
     
@@ -72,18 +74,23 @@ useEffect(() => {
       });
     }
 
-    const interval = setInterval(() => {
-      findBadgeRegion()
-      console.log("test")
-    }, TIME_INTERVAL);
+    // const interval = setInterval(() => {
+    //   findBadgeRegion()
+    //   console.log("test")
+    //   console.log( "State.Visited: " + state.visited)
+    // }, TIME_INTERVAL);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
 
-    //findBadgeRegion()
-    //console.log( "State.Visited: " + state.visited)
+    // if(state.visited == true){
+
+    // }
+
+    findBadgeRegion()
+    console.log( "state.visited: " + state.visited + "\n" + "state.badge: " + state.badgeColor)
 
   })();
-},[]);
+});
 
 //take current location and see if it is in a badge location
 //function returns location name
@@ -158,7 +165,7 @@ return (
         spacing={10}
         renderItem={({ item }) => (
           <View style={styles.badges}>
-            <Icon name='pets' type='material' color={item.color} size={60}></Icon>
+            <Icon name='pets' type='material' color={state.badgeColor} size={60}></Icon>
             <Text>{item.name}</Text>
           </View>
         )}
