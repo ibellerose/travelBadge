@@ -1,0 +1,4 @@
+As a User I want to be able to log in in order to save my information
+As a Dev I want a pop up window so when my users discover a new area they are notified
+As a Dev I want 80% coverage with unit testing to insure any changes do not comprimise currently working features
+As a user I want a clean loading page so I dont see any unecessary transitions

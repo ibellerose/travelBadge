@@ -10,7 +10,7 @@ import Screen from '../components/Screen';
 import { FlatGrid } from 'react-native-super-grid';
 
 import areaCoordsJson from '../../jsonDocuments/areaCoordinates.json';
-import badgeInfoJson from '../../jsonDocuments/badgeInfo.json';
+//import badgeInfoJson from '../../jsonDocuments/badgeInfo.json';
 
 import * as Location from "expo-location"
 import { Button, color } from '@rneui/base';
@@ -134,23 +134,33 @@ return (
           }
           region={region}
         >
-          <Polygon
-          coordinates={areaCoordsJson['Beacon Hill']}
-          fillColor={colors.areaFillColor}
-          strokeColor={colors.areaFillColor}
-          />
+        
+        {(() => {
+          const options = [];
+
+          for(let i = 0; i < Object.keys(areaCoordsJson).length; i++){
+            options.push(<Polygon
+            coordinates={ areaCoordsJson[Object.keys(areaCoordsJson)[i]]}
+            fillColor={state[Object.keys(areaCoordsJson)[i]].areaFillColor}
+            strokeColor={colors.darkGray}
+            />)
+          }
+
+          return options;
+        })()}
+
         </MapView>
       </TabView.Item>
       <TabView.Item style={{ backgroundColor: colors.lightGray, width: '100%' }}>
         <FlatGrid
         itemDimension={130}
-        data={badgeInfoJson['Badge Info']}
+        data={Object.keys(areaCoordsJson)}
         style={styles.gridView}
         spacing={10}
         renderItem={({ item }) => (
           <View style={styles.badges}>
-            <Icon name='pets' type='material' color={state[item.name].color} size={60}></Icon>
-            <Text>{item.name}</Text>
+            <Icon name='pets' type='material' color={state[item].iconColor} size={60}></Icon>
+            <Text>{item}</Text>
           </View>
         )}
         />

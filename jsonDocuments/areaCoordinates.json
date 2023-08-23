@@ -18,12 +18,12 @@
         "longitude": -71.064536
       },
       {
-        "latitude": 42.351957, 
-        "longitude": -71.070722
+        "latitude": 42.350244,
+        "longitude": -71.069883
       },
       {
-        "latitude": 42.356001,
-        "longitude": -71.075430
+        "latitude": 42.356809,
+        "longitude": -71.075763
       },
       {
         "latitude": 42.361286,
@@ -51,5 +51,7 @@
         "latitude": 42.350180,
         "longitude": -71.091684
       }
-    ]
+    ],
+    "Seaport":
+    []
 }
