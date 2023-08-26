@@ -13,7 +13,7 @@ function App() {
     <Provider store={store}>
       <NavigationContainer >
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={MapScreen} />
         </Stack.Navigator>
       </NavigationContainer>
